@@ -5,9 +5,11 @@ variables:
 - group: powershell-gallery
 
 stages:
-- stage: Test
+- stage: test
+  displayName: Test
   jobs:
-  - job: Unit tests
+  - job: unit_test
+    displayName: Unit testing
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -22,9 +24,11 @@ stages:
         testResultsFiles: output.xml
         failTaskOnFailedTests: true
       
-- stage: Deploy
+- stage: deploy
+  displayName: Deployment
   jobs:
-  - job: Publish to PSGallery
+  - job: psgallery
+    displayName: Publishing to PSGallery
     pool:
       vmImage: 'ubuntu-latest'
     steps:
