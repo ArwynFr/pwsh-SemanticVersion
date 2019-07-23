@@ -1,0 +1,18 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- powershell: .\test.ps1
+  workingDirectory: $(build.sourcesDirectory)
+  displayName: Running unit tests
+
+- task: PublishCodeCoverageResults@1
+  displayName: Publish code coverage results
+  inputs:
+    summaryFileLocation: coverage.xml
+
+- publish: $(Build.SourcesDirectory)
+  artifact: module
