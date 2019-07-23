@@ -1,6 +1,6 @@
-#Requires -Module StepSemVer
+Install-Module StepSemVer -Force
 
-if($null -ne (Find-Module StepSemVer -ErrorAction SilentlyContinue) {
+if ($null -ne (Find-Module StepSemVer -ErrorAction SilentlyContinue)) {
     $CurrentVersion = (Find-Module StepSemVer).Version
     $HasMajor = $(Build.SourceVersionMessage) -like '*#major*'
     $HasMinor = $(Build.SourceVersionMessage) -like '*#minor*'
@@ -9,7 +9,7 @@ if($null -ne (Find-Module StepSemVer -ErrorAction SilentlyContinue) {
     $File = .\StepSemVer\StepSemVer.psd1
     $Before = 'ModuleVersion[^\n]*'
     $After = "ModuleVersion = '$Version'"
-    (Get-Content $File -Raw) -replace $Before,$After | Set-Content $File
+    (Get-Content $File -Raw) -replace $Before, $After | Set-Content $File
 }
 
 Publish-Module -Path .\StepSemVer -NuGetApiKey "$env:NUGET_API_KEY"
