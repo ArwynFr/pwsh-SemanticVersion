@@ -1,6 +1,3 @@
-Get-Module StepSemVer | Remove-Module -Force
-Import-Module ./StepSemVer -Force
-
 InModuleScope StepSemVer {
     Describe 'Step-SemVer' {
         Context 'Major' {
