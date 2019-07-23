@@ -2,7 +2,7 @@ trigger:
 - master
 
 variables:
-- group: nuget-api-key
+- group: powershell-gallery
 
 stages:
 - stage: Test
