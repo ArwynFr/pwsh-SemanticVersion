@@ -9,11 +9,6 @@ steps:
   workingDirectory: $(build.sourcesDirectory)
   displayName: Running unit tests
 
-- task: PublishCodeCoverageResults@1
-  displayName: Publish code coverage results
-  inputs:
-    summaryFileLocation: coverage.xml
-
 - task: PublishTestResults@2
   displayName: Public tests results
   inputs:
