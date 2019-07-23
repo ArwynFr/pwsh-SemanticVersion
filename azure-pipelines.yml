@@ -7,7 +7,7 @@ variables:
 stages:
 - stage: Test
   jobs:
-  - job: Test
+  - job: Unit tests
     pool:
       vmImage: 'ubuntu-latest'
     steps:
@@ -21,13 +21,10 @@ stages:
         testResultsFormat: NUnit
         testResultsFiles: output.xml
         failTaskOnFailedTests: true
-
-    - publish: $(Build.SourcesDirectory)
-      artifact: module
       
 - stage: Deploy
   jobs:
-  - job: Deploy
+  - job: Publish to PSGallery
     pool:
       vmImage: 'ubuntu-latest'
     steps:
