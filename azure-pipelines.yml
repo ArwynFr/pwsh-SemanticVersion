@@ -1,20 +1,37 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+variables:
+- group: nuget-api-key
 
-steps:
-- powershell: .\test.ps1
-  workingDirectory: $(build.sourcesDirectory)
-  displayName: Running unit tests
+stages:
+- stage: Test
+  jobs:
+  - job: Test
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - powershell: .\test.ps1
+      workingDirectory: $(build.sourcesDirectory)
+      displayName: Running unit tests
 
-- task: PublishTestResults@2
-  displayName: Public tests results
-  inputs:
-    testResultsFormat: NUnit
-    testResultsFiles: output.xml
-    failTaskOnFailedTests: true
+    - task: PublishTestResults@2
+      displayName: Public tests results
+      inputs:
+        testResultsFormat: NUnit
+        testResultsFiles: output.xml
+        failTaskOnFailedTests: true
 
-- publish: $(Build.SourcesDirectory)
-  artifact: module
+    - publish: $(Build.SourcesDirectory)
+      artifact: module
+      
+- stage: Deploy
+  jobs:
+  - job: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - powershell: .\publish.ps1
+      env: {
+        NUGET_API_KEY: $(nuget-api-key)
+      }
