@@ -14,5 +14,12 @@ steps:
   inputs:
     summaryFileLocation: coverage.xml
 
+- task: PublishTestResults@2
+  displayName: Public tests results
+  inputs:
+    testResultsFormat: NUnit
+    testResultsFiles: output.xml
+    failTaskOnFailedTests: true
+
 - publish: $(Build.SourcesDirectory)
   artifact: module
