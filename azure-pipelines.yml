@@ -18,6 +18,12 @@ stages:
     - powershell: .\test.ps1
       workingDirectory: $(build.sourcesDirectory)
       displayName: Running unit tests
+    - powershell: .\upload-coverage.ps1
+      workingDirectory: $(build.sourcesDirectory)
+      displayName: Upload test coverage to Codacy
+      env: {
+        CODACY_PROJECT_TOKEN: $(codacy-project-token)
+      }
 
     - task: PublishTestResults@2
       displayName: Public tests results
