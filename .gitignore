@@ -331,3 +331,4 @@ ASALocalRun/
 
 # Build artefacts
 *.xml
+codacy-coverage-reporter
