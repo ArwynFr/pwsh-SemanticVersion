@@ -8,30 +8,47 @@ variables:
 
 stages:
 - stage: test
-  displayName: Test
+  displayName: Running tests
   jobs:
   - job: unit_test
     displayName: Unit testing
     pool:
       vmImage: 'ubuntu-latest'
     steps:
+
     - powershell: .\test.ps1
+      displayName: Run unit tests and coverage
       workingDirectory: $(build.sourcesDirectory)
-      displayName: Running unit tests
-    - powershell: .\upload-coverage.ps1
-      workingDirectory: $(build.sourcesDirectory)
-      displayName: Upload test coverage to Codacy
-      env: {
-        CODACY_PROJECT_TOKEN: $(codacy-project-token)
-      }
 
     - task: PublishTestResults@2
-      displayName: Public tests results
+      displayName: Publish unit tests results
       inputs:
         testResultsFormat: NUnit
         testResultsFiles: output.xml
         failTaskOnFailedTests: true
       
+    - task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
+      displayName: Generate unit tests coverage report
+      inputs:
+        reports: $(build.sourcesDirectory)\coverage.xml
+        targetdir: $(build.sourcesDirectory)\coverage-report
+        reporttypes: 'HtmlInline_AzurePipelines_Dark;HtmlInline_AzurePipelines;Badges'
+
+    - task: PublishCodeCoverageResults@1
+      displayName: Publish unit tests coverage report to Azure DevOps
+      inputs:
+        summaryFileLocation: $(build.sourcesDirectory)\coverage.xml
+        pathToSources: $(build.sourcesDirectory)
+        reportDirectory: $(build.sourcesDirectory)\coverage-report
+        failIfCoverageEmpty: true
+
+    - powershell: .\upload-coverage.ps1
+      displayName: Publish unit tests coverage report to Codacy
+      workingDirectory: $(build.sourcesDirectory)
+      env: {
+        CODACY_PROJECT_TOKEN: $(codacy-project-token)
+      }
+    
 - stage: deploy
   displayName: Deployment
   jobs:
