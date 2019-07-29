@@ -7,7 +7,7 @@
     Description     = 'A powerhsell module dedicated to incrementing SemVer versions'
     ModuleVersion   = '0.0.0.1'
 
-    RootModule      = 'StepSemVer.psm1'    
+    RootModule      = 'StepSemVer.psm1'
     FunctionsToExport = @(
         'Step-SemVer'
     )

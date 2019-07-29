@@ -6,7 +6,7 @@ InModuleScope StepSemVer {
             }
             It 'Majors overrides other properly' {
                 Step-SemVer 1.2.3.4 -Major -Minor -Build -Revision 7 | Should Be 2.0.0.7
-            }        
+            }
         }
         Context 'Minor' {
             It 'Increment minors properly' {
@@ -14,7 +14,7 @@ InModuleScope StepSemVer {
             }
             It 'Minor overrides other properly' {
                 Step-SemVer 1.2.3.4 -Minor -Build -Revision 7 | Should Be 1.3.0.7
-            }   
+            }
         }
         Context 'Build' {
             It 'Increment build properly' {
