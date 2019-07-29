@@ -37,9 +37,9 @@ stages:
     - task: PublishCodeCoverageResults@1
       displayName: Publish unit tests coverage report to Azure DevOps
       inputs:
-        summaryFileLocation: $(build.sourcesDirectory)\coverage.xml
-        pathToSources: $(build.sourcesDirectory)
-        reportDirectory: $(build.sourcesDirectory)\coverage-report
+        summaryFileLocation: $(build.sourcesDirectory)/coverage.xml
+        pathToSources: $(build.sourcesDirectory)/StepSemVer
+        reportDirectory: $(build.sourcesDirectory)/coverage-report
         failIfCoverageEmpty: true
 
     - powershell: .\upload-coverage.ps1
