@@ -47,7 +47,7 @@ https://github.com/ArwynFr/StepSemVer
 #>
 function Step-SemVer {
     param(
-        [Parameter(Position = 0, Mandatory = $true)]
+        [Parameter(Position = 0, Mandatory = $true, ValueFromPipeline = $true)]
         [version]$Version,
         [switch]$Major,
         [switch]$Minor,

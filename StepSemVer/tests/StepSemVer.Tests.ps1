@@ -7,6 +7,10 @@ InModuleScope StepSemVer {
             It 'Majors overrides other properly' {
                 Step-SemVer 1.2.3.4 -Major -Minor -Build -Revision 7 | Should Be 2.0.0.7
             }
+            It 'Supports piping the version' {
+                [version]$Version = '1.2.3.4'
+                $Version | Step-SemVer -Major | Should Be 2.0.0.0
+            }
         }
         Context 'Minor' {
             It 'Increment minors properly' {
@@ -15,6 +19,10 @@ InModuleScope StepSemVer {
             It 'Minor overrides other properly' {
                 Step-SemVer 1.2.3.4 -Minor -Build -Revision 7 | Should Be 1.3.0.7
             }
+            It 'Supports piping the version' {
+                [version]$Version = '1.2.3.4'
+                $Version | Step-SemVer -Minor | Should Be 1.3.0.0
+            }
         }
         Context 'Build' {
             It 'Increment build properly' {
@@ -22,6 +30,10 @@ InModuleScope StepSemVer {
             }
             It 'Increment build properly with revision' {
                 Step-SemVer 1.2.3.4 -Build -Revision 7 | Should Be 1.2.4.7
+            }
+            It 'Supports piping the version' {
+                [version]$Version = '1.2.3.4'
+                $Version | Step-SemVer -Build | Should Be 1.2.4.0
             }
         }
         Context 'Revision' {
@@ -33,6 +45,10 @@ InModuleScope StepSemVer {
             }
             It 'Increment newer revision properly' {
                 Step-SemVer 1.2.3.4 -Revision 6 | Should Be 1.2.3.6
+            }
+            It 'Supports piping the version' {
+                [version]$Version = '1.2.3.4'
+                $Version | Step-SemVer | Should Be 1.2.3.5
             }
         }
     }
