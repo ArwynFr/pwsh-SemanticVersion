@@ -1,7 +1,7 @@
 # StepSemVer
 *   [![GitHub](https://img.shields.io/badge/-GitHub-lightgrey)](https://github.com/ArwynFr/StepSemVer) [![Azure DevOps](https://img.shields.io/badge/-Azure_DevOps-lightgrey)](https://dev.azure.com/chezsquall/StepSemVer/) [![Codacy](https://img.shields.io/badge/-Codacy-lightgrey)](https://app.codacy.com/project/ArwynFr/ArwynFr-StepSemVer/dashboard) [![PSGallery](https://img.shields.io/badge/-PowerShell_Gallery-lightgrey)](https://www.powershellgallery.com/packages/StepSemVer)
 *   ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ArwynFr/StepSemVer) ![GitHub last commit](https://img.shields.io/github/last-commit/ArwynFr/StepSemVer)
-*   ![Azure DevOps builds](https://img.shields.io/azure-devops/build/chezsquall/StepSemVer/14) ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/chezsquall/StepSemVer/14) ![Codacy grade](https://img.shields.io/codacy/grade/6e61a35671824660b1b0d2f87af41213)
+*   ![Azure DevOps builds](https://img.shields.io/azure-devops/build/chezsquall/StepSemVer/15) ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/chezsquall/StepSemVer/15) ![Codacy grade](https://img.shields.io/codacy/grade/6e61a35671824660b1b0d2f87af41213)
 *   ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/StepSemVer) ![PowerShell Gallery](https://img.shields.io/powershellgallery/dt/StepSemVer)
 
 ## What is StepSemVer
