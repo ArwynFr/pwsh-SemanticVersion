@@ -1,4 +1,5 @@
 Install-Module Pester -Force
+Import-Module Pester -Force
 Import-Module $PSScriptRoot/../StepSemVer -Force
 
 $configuration = [PesterConfiguration]@{
