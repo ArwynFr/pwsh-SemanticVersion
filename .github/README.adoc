@@ -1,0 +1,36 @@
+= StepSemVer
+
+StepSemVer is a small powershell module that adds a command to increment semantic version numbers.
+
+image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery] image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery] 
+
+== Rules and standards
+
+The following documents provide additional information on rules and standards applying to this project :
+
+- link:/LICENSE[MIT License]
+
+== How to use the module
+
+This module contains a single command :
+
+=== Step-SemVer
+
+Returns a semantic version that increments an existing value.
+
+```Powershell
+Step-SemVer
+  [[-Version] <semver>]
+  [-BumpType] {major | minor | patch}
+  [[-PreRelease] <string>]
+  [[-Build] <string>]
+  [<CommonParameters>]
+```
+
+`-Version`:: *Required* and *Pipelinable*. Current version from which to do the increment.
+
+`-BumpType`:: *Required*. Must be one of `major`, `minor`, or `patch`. The new version number is incremented based on this value.
+
+`-PreRelease`:: *Optional*. If specified, sets the pre-release value of the new version.
+
+`-Build`:: *Optional*. If specified, sets the build value of the new version.
