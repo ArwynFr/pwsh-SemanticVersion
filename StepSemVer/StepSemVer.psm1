@@ -1,5 +1,6 @@
 function Step-SemVer {
   [CmdletBinding()]
+  [OutputType([semver])]
   param (
     [Parameter(ValueFromPipeline)]
     [semver]
