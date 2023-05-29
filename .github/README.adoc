@@ -1,8 +1,8 @@
 = StepSemVer
 
-StepSemVer is a small powershell module that adds a command to increment semantic version numbers.
+StepSemVer is a pwsh module used to increment semantic versions number.
 
-image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery] image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery] 
+https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]]
 
 == Rules and standards
 
