@@ -1,19 +1,28 @@
-Install-Module Pester -Force
-Import-Module Pester -Force
-Import-Module $PSScriptRoot/../StepSemVer -Force
+[CmdletBinding()]
+param ()
+
+$RootPath = Convert-Path $PSScriptRoot/..
+$ModulePath = Convert-Path $RootPath/StepSemVer
+
+Import-Module -Force Pester
+Import-Module -Force PSScriptAnalyzer
+Import-Module -Force $ModulePath
+
+Test-ModuleManifest $ModulePath/StepSemVer.psd1
+Invoke-ScriptAnalyzer -Recurse -Severity Warning $ModulePath
 
 $configuration = [PesterConfiguration]@{
   Run          = @{
-    Path = "$PSScriptRoot/../tests/"
+    Path = "$RootPath/tests/"
   }
   CodeCoverage = @{
     Enabled    = $true
-    Path       = "$PSScriptRoot/../StepSemVer/StepSemVer.psm1"
-    OutputPath = "$PSScriptRoot/../coverage.xml"
+    Path       = "$ModulePath/StepSemVer.psm1"
+    OutputPath = "$RootPath/coverage.xml"
   }
   TestResult   = @{
     Enabled    = $true
-    OutputPath = "$PSScriptRoot/../output.xml"
+    OutputPath = "$RootPath/output.xml"
   }
 }
 

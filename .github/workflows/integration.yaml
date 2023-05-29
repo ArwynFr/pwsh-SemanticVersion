@@ -12,11 +12,13 @@ jobs:
 
       - name: Checkout source files
         uses: actions/checkout@v3
-
-      - name: Lint sources
-        shell: pwsh
-        run: Invoke-ScriptAnalyzer -Recurse -Severity Warning ./StepSemVer/
       
       - name: Run unit tests
         shell: pwsh
         run: ./build/test.ps1
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage.xml
