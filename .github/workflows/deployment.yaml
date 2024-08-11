@@ -9,6 +9,9 @@ jobs:
   deployment:
     runs-on: ubunutu-latest
     steps:
+      - name: Checkout source files
+        uses: actions/checkout@v3
+                
       - run: ./build.sh Publish
-    env:
-      NUKE_NUGETAPIKEY: ${{ secrets.PSGALLERY_APIKEY }}
+        env:
+          NUKE_NUGETAPIKEY: ${{ secrets.PSGALLERY_APIKEY }}
