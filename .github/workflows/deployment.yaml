@@ -7,9 +7,8 @@ on:
 
 jobs:
   deployment:
-    uses: ArwynFr/ArwynFr/.github/workflows/pwsh-deployment.yaml@main
-    with:
-      manifest: ./StepSemVer/StepSemVer.psd1
-      source: ./StepSemVer/
-    secrets:
-      PSGALLERY_APIKEY: ${{ secrets.PSGALLERY_APIKEY }}
+    runs-on: ubunutu-latest
+    steps:
+      - run: ./build.sh Publish
+    env:
+      NUKE_NUGETAPIKEY: ${{ secrets.PSGALLERY_APIKEY }}
