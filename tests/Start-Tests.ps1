@@ -16,9 +16,10 @@ $configuration = [PesterConfiguration]@{
     Path = "$RootPath/tests/"
   }
   CodeCoverage = @{
-    Enabled    = $true
-    Path       = "$ModulePath/StepSemVer.psm1"
-    OutputPath = "$RootPath/coverage.xml"
+    CoveragePercentTarget = 100
+    Enabled               = $true
+    Path                  = "$ModulePath/StepSemVer.psm1"
+    OutputPath            = "$RootPath/coverage.xml"
   }
   TestResult   = @{
     Enabled    = $true
