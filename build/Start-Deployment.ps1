@@ -4,7 +4,6 @@ param ()
 
 $RootPath = Join-Path $PSScriptRoot .. | Convert-Path
 $ModulePath = Join-Path $RootPath StepSemVer
-$Manifest = Join-Path $ModulePath StepSemVer.psd1
 
 Import-Module $ModulePath -Force
 $CurrentVersion = (gh release view --json tagName | ConvertFrom-Json).tagName
@@ -16,7 +15,10 @@ $TargetVersion = $CurrentVersion | Step-SemanticVersion -BumpType $Increment -Pr
 "CurrentVersion = $CurrentVersion" | Write-Verbose
 "TargetVersion  = $TargetVersion" | Write-Verbose
 
-Update-ModuleManifest -ModuleVersion $TargetVersion -Path $Manifest -WhatIf:$WhatIfPreference
+Get-ChildItem $ModulePath -Recurse -Filter *.psd1 | ForEach-Object {
+  Update-ModuleManifest -ModuleVersion $TargetVersion -Path $_ -WhatIf:$WhatIfPreference
+}
+
 Publish-Module -Path $ModulePath -NuGetApiKey $env:PSGALLERY_APIKEY -WhatIf:$WhatIfPreference
 
 if ($PSCmdlet.ShouldProcess($TargetVersion, 'gh release create')) {
