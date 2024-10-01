@@ -2,7 +2,7 @@
 
 A powershell module used to increment semantic version numbers.
 
-https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/StepSemVer?style=for-the-badge[GitHub License]]
+https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/pwsh-StepSemVer?style=for-the-badge[GitHub License]]
 
 You can download and install this powershell module from PSGallery:
 
