@@ -7,9 +7,13 @@ on:
 
 jobs:
   deployment:
-    uses: ArwynFr/ArwynFr/.github/workflows/pwsh-deployment.yaml@main
-    with:
-      manifest: ./StepSemVer/StepSemVer.psd1
-      source: ./StepSemVer/
-    secrets:
-      PSGALLERY_APIKEY: ${{ secrets.PSGALLERY_APIKEY }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source files
+        uses: actions/checkout@v4
+
+      - name: Run continuous deployment
+        shell: pwsh
+        run: ./build/Start-Deployment.ps1 -Verbose
+        env:
+          PSGALLERY_APIKEY: ${{ secrets.PSGALLERY_APIKEY }}
