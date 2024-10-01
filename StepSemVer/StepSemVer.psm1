@@ -1,4 +1,4 @@
-function Step-SemVer {
+function Step-SemanticVersion {
   [CmdletBinding()]
   [OutputType([semver])]
   param (

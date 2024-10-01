@@ -15,6 +15,6 @@
 
     RootModule        = 'StepSemVer.psm1'
     FunctionsToExport = @(
-        'Step-SemVer'
+    'Step-SemanticVersion'
     )
 }
