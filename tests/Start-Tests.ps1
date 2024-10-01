@@ -17,7 +17,7 @@ $configuration = [PesterConfiguration]@{
   }
   CodeCoverage = @{
     Enabled    = $true
-    Path       = "$ModulePath/StepSemVer.psm1"
+    Path       = Get-ChildItem $ModulePath -Recurse -Include *.psm1
     OutputPath = "$RootPath/coverage.xml"
   }
   TestResult   = @{
