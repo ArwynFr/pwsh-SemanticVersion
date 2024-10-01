@@ -1,16 +1,8 @@
-= StepSemVer
+= ArwynFr.SemanticVersion
 
-StepSemVer is a pwsh module used to increment semantic versions number.
+A powershell module used to increment semantic versions number.
 
-https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]]
-
-== Rules and standards
-
-The following documents provide additional information on rules and standards applying to this project :
-
-- link:/LICENSE[MIT License]
-
-== Installing
+https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/StepSemVer?style=for-the-badge[GitHub License]]
 
 You can download and install this powershell module from PSGallery:
 
@@ -18,11 +10,9 @@ You can download and install this powershell module from PSGallery:
 Install-Module StepSemVer
 ```
 
-== Usage
+== ConvertTo-SemanticVersionBump
 
-=== ConvertTo-SemanticVersionBump
-
-This function returns `major`,  `minor` or `patch` depending on the presence of a `+semver: major` or `+semver: minor` tag in the commit message. It is intended to be used with `Step-SemanticVersion`.
+This function returns `major`, `minor` or `patch` depending on the presence of a `+semver: major` or `+semver: minor` tag in the commit message. It is intended to be used with `Step-SemanticVersion`.
 
 ```Powershell
 ConvertTo-SemanticVersionBump
@@ -32,7 +22,7 @@ ConvertTo-SemanticVersionBump
 
 `-CommitMessage`:: *Required* and *Pipelinable*. A commit message string that the command will use as an input.
 
-=== Step-SemanticVersion
+== Step-SemanticVersion
 
 Returns an incremented semantic version number.
 
