@@ -20,9 +20,10 @@ $configuration = [PesterConfiguration]@{
     Path = $TestsPath
   }
   CodeCoverage = @{
-    Enabled    = $true
-    Path       = Get-ChildItem $ModulePath -Recurse -Include *.psm1
-    OutputPath = $Coverage
+    CoveragePercentTarget = 100
+    Enabled               = $true
+    Path                  = Get-ChildItem $ModulePath -Recurse -Include *.psm1
+    OutputPath            = $Coverage
   }
   TestResult   = @{
     Enabled    = $true
