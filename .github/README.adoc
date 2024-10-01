@@ -10,16 +10,34 @@ The following documents provide additional information on rules and standards ap
 
 - link:/LICENSE[MIT License]
 
-== How to use the module
+== Installing
 
-This module contains a single command :
-
-=== Step-SemVer
-
-Returns a semantic version that increments an existing value.
+You can download and install this powershell module from PSGallery:
 
 ```Powershell
-Step-SemVer
+Install-Module StepSemVer
+```
+
+== Usage
+
+=== ConvertTo-SemanticVersionBump
+
+This function returns `major`,  `minor` or `patch` depending on the presence of a `+semver: major` or `+semver: minor` tag in the commit message. It is intended to be used with `Step-SemanticVersion`.
+
+```Powershell
+ConvertTo-SemanticVersionBump
+  [[-CommitMessage] <string>]
+  [<CommonParameters>]
+```
+
+`-CommitMessage`:: *Required* and *Pipelinable*. A commit message string that the command will use as an input.
+
+=== Step-SemanticVersion
+
+Returns an incremented semantic version number.
+
+```Powershell
+Step-SemanticVersion
   [[-Version] <semver>]
   [-BumpType] {major | minor | patch}
   [[-PreRelease] <string>]
