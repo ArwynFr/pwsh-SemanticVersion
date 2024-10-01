@@ -1,28 +1,32 @@
 [CmdletBinding()]
 param ()
 
-$RootPath = Convert-Path $PSScriptRoot/..
-$ModulePath = Convert-Path $RootPath/StepSemVer
+$RootPath = Join-Path $PSScriptRoot .. | Convert-Path
+$ModulePath = Join-Path $RootPath StepSemVer
+$Manifest = Join-Path $ModulePath StepSemVer.psd1
+$TestsPath = Join-Path $RootPath tests
+$Coverage = Join-Path $RootPath coverage.xml
+$Output = Join-Path $RootPath output.xml
 
 Import-Module -Force Pester
 Import-Module -Force PSScriptAnalyzer
 Import-Module -Force $ModulePath
 
-Test-ModuleManifest $ModulePath/StepSemVer.psd1
+Test-ModuleManifest $Manifest
 Invoke-ScriptAnalyzer -Recurse -Severity Warning $ModulePath
 
 $configuration = [PesterConfiguration]@{
   Run          = @{
-    Path = "$RootPath/tests/"
+    Path = $TestsPath
   }
   CodeCoverage = @{
     Enabled    = $true
     Path       = Get-ChildItem $ModulePath -Recurse -Include *.psm1
-    OutputPath = "$RootPath/coverage.xml"
+    OutputPath = $Coverage
   }
   TestResult   = @{
     Enabled    = $true
-    OutputPath = "$RootPath/output.xml"
+    OutputPath = $Output
   }
 }
 

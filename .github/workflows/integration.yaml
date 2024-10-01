@@ -9,8 +9,17 @@ on:
 
 jobs:
   integration:
-    uses: ArwynFr/ArwynFr/.github/workflows/pwsh-integration.yaml@main
-    with:
-      tests: ./tests/Start-Tests.ps1
-    secrets:
-      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source files
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        shell: pwsh
+        run: ./build/Start-Tests.ps1 -Verbose
+
+      - name: Run Codacy coverage reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ./coverage.xml
