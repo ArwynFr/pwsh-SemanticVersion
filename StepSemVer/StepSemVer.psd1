@@ -15,13 +15,11 @@
 
   NestedModules     = @(
     'ConvertTo-SemanticVersionStep/ConvertTo-SemanticVersionStep.psd1'
-    'Step-GitHubRepositoryVersion/Step-GitHubRepositoryVersion.psd1'
     'Step-SemanticVersion/Step-SemanticVersion.psd1'
   )
 
   FunctionsToExport = @(
     'ConvertTo-SemanticVersionStep'
-    'Step-GitHubRepositoryVersion'
     'Step-SemanticVersion'
   )
 }
