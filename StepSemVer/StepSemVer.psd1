@@ -1,6 +1,6 @@
 @{
-  Author            = 'Arwyn'
-  CompanyName       = 'www.gsri.team'
+  Author            = 'ArwynFr'
+  CompanyName       = 'www.arwyn.fr'
   Copyright         = '(c) 2019-2023 - ArwynFr - MIT license'
 
   ModuleVersion     = '0.1.0'
