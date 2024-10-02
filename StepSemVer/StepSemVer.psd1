@@ -5,12 +5,12 @@
 
   ModuleVersion     = '0.1.0'
   GUID              = 'b4209e98-7072-45f3-bb89-ce520a182558'
-  Description       = 'StepSemVer pwsh module used to increment semantic versions number.'
-  HelpInfoURI       = 'https://github.com/ArwynFr/pwsh-StepSemVer#readme'
+  Description       = 'A powershell module used to increment semantic version numbers'
+  HelpInfoURI       = 'https://github.com/ArwynFr/pwsh-SemanticVersion#readme'
     
   PrivateData       = @{
-    ProjectUri = 'https://github.com/ArwynFr/pwsh-StepSemVer'
-    LicenseUri = 'https://github.com/ArwynFr/pwsh-StepSemVer/blob/main/LICENSE'
+    ProjectUri = 'https://github.com/ArwynFr/pwsh-SemanticVersion'
+    LicenseUri = 'https://github.com/ArwynFr/pwsh-SemanticVersion/blob/main/LICENSE'
   }
 
   NestedModules     = @(
