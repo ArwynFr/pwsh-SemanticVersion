@@ -1,4 +1,4 @@
-InModuleScope StepSemVer {
+InModuleScope ArwynFr.SemanticVersion {
   Describe 'ConvertTo-SemanticVersionStep' {
     Context 'Major' {
       It 'Finds major semver message' {

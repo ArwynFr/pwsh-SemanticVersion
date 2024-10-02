@@ -3,7 +3,7 @@ param ()
 
 
 $RootPath = Join-Path $PSScriptRoot .. | Convert-Path
-$ModulePath = Join-Path $RootPath StepSemVer
+$ModulePath = Join-Path $RootPath ArwynFr.SemanticVersion
 
 Import-Module $ModulePath -Force
 $CurrentVersion = (gh release view --json tagName | ConvertFrom-Json).tagName

@@ -2,12 +2,12 @@
 
 A powershell module used to increment semantic version numbers.
 
-https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/pwsh-SemanticVersion?style=for-the-badge[GitHub License]]
+https://www.powershellgallery.com/packages/ArwynFr.SemanticVersion[image:https://img.shields.io/powershellgallery/v/ArwynFr.SemanticVersion?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/ArwynFr.SemanticVersion[image:https://img.shields.io/powershellgallery/dt/ArwynFr.SemanticVersion?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/pwsh-SemanticVersion?style=for-the-badge[GitHub License]]
 
 You can download and install this powershell module from PSGallery:
 
 ```Powershell
-Install-Module StepSemVer
+Install-Module ArwynFr.SemanticVersion
 ```
 
 == ConvertTo-SemanticVersionBump

@@ -2,8 +2,8 @@
 param ()
 
 $RootPath = Join-Path $PSScriptRoot .. | Convert-Path
-$ModulePath = Join-Path $RootPath StepSemVer
-$Manifest = Join-Path $ModulePath StepSemVer.psd1
+$ModulePath = Join-Path $RootPath ArwynFr.SemanticVersion
+$Manifest = Join-Path $ModulePath ArwynFr.SemanticVersion.psd1
 $TestsPath = Join-Path $RootPath tests
 $Coverage = Join-Path $RootPath coverage.xml
 $Output = Join-Path $RootPath output.xml

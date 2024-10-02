@@ -1,4 +1,4 @@
-InModuleScope StepSemVer {
+InModuleScope ArwynFr.SemanticVersion {
   Describe 'Step-SemanticVersion' {
     Context 'Major' {
       It 'Increment majors properly' {
