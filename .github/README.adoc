@@ -1,25 +1,33 @@
-= StepSemVer
+= ArwynFr.SemanticVersion
 
-StepSemVer is a pwsh module used to increment semantic versions number.
+A powershell module used to increment semantic version numbers.
 
-https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/v/StepSemVer?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/StepSemVer[image:https://img.shields.io/powershellgallery/dt/StepSemVer?style=for-the-badge[PowerShell Gallery]]
+https://www.powershellgallery.com/packages/ArwynFr.SemanticVersion[image:https://img.shields.io/powershellgallery/v/ArwynFr.SemanticVersion?style=for-the-badge[PowerShell Gallery]] https://www.powershellgallery.com/packages/ArwynFr.SemanticVersion[image:https://img.shields.io/powershellgallery/dt/ArwynFr.SemanticVersion?style=for-the-badge[PowerShell Gallery]] link:/LICENSE[image:https://img.shields.io/github/license/ArwynFr/pwsh-SemanticVersion?style=for-the-badge[GitHub License]]
 
-== Rules and standards
-
-The following documents provide additional information on rules and standards applying to this project :
-
-- link:/LICENSE[MIT License]
-
-== How to use the module
-
-This module contains a single command :
-
-=== Step-SemVer
-
-Returns a semantic version that increments an existing value.
+You can download and install this powershell module from PSGallery:
 
 ```Powershell
-Step-SemVer
+Install-Module ArwynFr.SemanticVersion
+```
+
+== ConvertTo-SemanticVersionBump
+
+This function returns `major`, `minor` or `patch` depending on the presence of a `+semver: major` or `+semver: minor` tag in the commit message. It is intended to be used with `Step-SemanticVersion`.
+
+```Powershell
+ConvertTo-SemanticVersionBump
+  [[-CommitMessage] <string>]
+  [<CommonParameters>]
+```
+
+`-CommitMessage`:: *Required* and *Pipelinable*. A commit message string that the command will use as an input.
+
+== Step-SemanticVersion
+
+Returns an incremented semantic version number.
+
+```Powershell
+Step-SemanticVersion
   [[-Version] <semver>]
   [-BumpType] {major | minor | patch}
   [[-PreRelease] <string>]
