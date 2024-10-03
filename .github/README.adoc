@@ -42,3 +42,15 @@ Step-SemanticVersion
 `-PreRelease`:: *Optional*. If specified, sets the pre-release value of the new version.
 
 `-Build`:: *Optional*. If specified, sets the build value of the new version.
+
+== New-GithubSemanticVersionRelease
+
+This function creates a new GitHub release by getting the latest release version and incrementing based on the presence of a `+semver: major` or `+semver: minor` tag in the current commit message. 
+
+```Powershell
+New-GithubSemanticVersionRelease
+  [-AddTags]
+  [<CommonParameters>]
+```
+
+`-AddTags`:: *Optional* switch. If set, the command will also create and force push tags for major and minor versions.
