@@ -1,5 +1,6 @@
 function New-GithubSemanticVersionRelease {
   [CmdletBinding(SupportsShouldProcess)]
+  [OutputType([semver])]
   param (
     [Parameter()]
     [switch]
