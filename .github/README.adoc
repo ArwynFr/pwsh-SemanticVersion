@@ -45,7 +45,7 @@ Step-SemanticVersion
 
 == New-GithubSemanticVersionRelease
 
-This function creates a new GitHub release by getting the latest release version and incrementing based on the presence of a `+semver: major` or `+semver: minor` tag in the current commit message. 
+This function creates a new GitHub release by getting the latest release version and incrementing based on the presence of a `+semver: major` or `+semver: minor` tag in the current commit message. It returns the new version number as a semver structure so you can use it in the rest of your script.
 
 ```Powershell
 New-GithubSemanticVersionRelease
