@@ -16,13 +16,13 @@ function New-GithubSemanticVersionRelease {
   "TargetVersion  = $TargetVersion" | Write-Verbose
   
   if ($PSCmdlet.ShouldProcess($TargetVersion, 'gh release create')) {
-    gh release create $TargetVersion --generate-notes
+    & gh release create $TargetVersion --generate-notes | Out-Null
   }
 
   if ($AddTags -and $PSCmdlet.ShouldProcess($TargetVersion, 'git tags major / minor versions')) {
-    git tag --force "v$($TargetVersion.Major).$($TargetVersion.Minor)"
-    git tag --force "v$($TargetVersion.Major)"
-    git push origin --tags --force
+    & git tag --force "v$($TargetVersion.Major).$($TargetVersion.Minor)"
+    & git tag --force "v$($TargetVersion.Major)"
+    & git push origin --tags --force
   }
 
   $TargetVersion
