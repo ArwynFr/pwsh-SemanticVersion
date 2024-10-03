@@ -15,19 +15,24 @@ Import-Module -Force $ModulePath
 Test-ModuleManifest $Manifest
 Invoke-ScriptAnalyzer -Recurse -Severity Warning $ModulePath
 
+$Exclusions = @(
+  # Reason: would require test/mock GitHub repositories
+  'New-GithubSemanticVersionRelease.psm1'
+)
+
+$Files = Get-ChildItem $ModulePath -Recurse -Include *.psm1 -Exclude $Exclusions
+
 $configuration = [PesterConfiguration]@{
-  Run          = @{
-    Path = $TestsPath
+  Run          = @{ Path = $TestsPath }
+  TestResult   = @{
+    Enabled    = $true
+    OutputPath = $Output
   }
   CodeCoverage = @{
     CoveragePercentTarget = 100
     Enabled               = $true
-    Path                  = Get-ChildItem $ModulePath -Recurse -Include *.psm1
+    Path                  = $Files
     OutputPath            = $Coverage
-  }
-  TestResult   = @{
-    Enabled    = $true
-    OutputPath = $Output
   }
 }
 
