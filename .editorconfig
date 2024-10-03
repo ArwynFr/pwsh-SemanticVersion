@@ -5,3 +5,4 @@ indent_style = space
 
 [*.{ps1,psd1,psm1}]
 indent_size = 2
+insert_final_newline = true
